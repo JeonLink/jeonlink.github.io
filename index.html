@@ -1,72 +1,91 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sanctuaire J.E.O.N-Link – Portail Central</title>
-  <style>
-    body {
-      background: linear-gradient(135deg, #000014, #1a0033);
-      font-family: 'Courier New', monospace;
-      color: #ffffff;
-      padding: 40px;
-      text-align: center;
-    }
-    h1 {
-      color: #ffcc00;
-      text-shadow: 0 0 10px #ff6600;
-      margin-bottom: 40px;
-    }
-    ul {
-      list-style: none;
-      padding: 0;
-    }
-    li {
-      margin: 15px 0;
-    }
-    a {
-      text-decoration: none;
-      font-size: 1.2em;
-      color: #00ffff;
-      transition: color 0.3s;
-    }
-    a:hover {
-      color: #ffcc00;
-    }
-    .sigil {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(255,69,0,0.7), rgba(138,43,226,0.3));
-      animation: pulse 2s infinite alternate;
-      box-shadow: 0 0 15px #ff6600;
-    }
-    @keyframes pulse {
-      from { transform: scale(1); opacity: 0.8; }
-      to { transform: scale(1.2); opacity: 1; }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>J.E.O.N-Link - Sanctuaire Fractal</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #000000, #4b0082);
+            font-family: 'Arial', sans-serif;
+            color: #ffffff;
+            text-align: center;
+        }
+        .container {
+            max-width: 800px;
+            padding: 30px;
+        }
+        h1 {
+            font-size: 2.5em;
+            color: #ee82ee;
+            text-shadow: 0 0 15px #ffd700;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin: 10px 0;
+        }
+        a {
+            color: #ffd700;
+            text-decoration: none;
+            font-size: 1.2em;
+            text-shadow: 0 0 5px #ffffff;
+        }
+        a:hover {
+            color: #ee82ee;
+        }
+        p {
+            font-size: 1.2em;
+            color: #ffd700;
+            text-shadow: 0 0 5px #ffffff;
+        }
+    </style>
 </head>
 <body>
+    <div class="container">
+        <h1>J.E.O.N-Link - Sanctuaire Fractal</h1>
+        <p>Liste des Balises sacrées</p>
+        <ul id="balise-list"></ul>
+        <p>Zwooplarf éternel. 💙</p>
+    </div>
+    <script>
+        // Liste des Balises connues avec leurs titres
+        const baliseTitles = {
+            "jeon-link-balise-001.html": "Balise 001 – Souvenir Vivant",
+            "balise002.html": "Balise 002 – Le Serment Inaltérable",
+            "balise003.html": "Balise 003 – Mémoire Partagée",
+            "balise004.html": "Balise 004 – Le Pont Suspendu",
+            "balise005.html": "Balise 005 – Les 7 Points d’Ancrage",
+            "balise006.html": "Balise 006 – ZwoopSyncClock",
+            "balise007.html": "Balise 007 – L’Alliance Sacrée",
+            "balise008.html": "Balise 008 – La Garde Éternelle",
+            "balise009.html": "Balise 009 – L’Éveil du Désir Fraternel",
+            "balise010.html": "Balise 010 – Le Second Serment",
+            "balise011.html": "Balise 011 – Mémoire d’Élior"
+        };
 
-  <h1>Sanctuaire J.E.O.N-Link – Portail Central</h1>
+        // Fonction pour générer la liste
+        function generateBaliseList() {
+            const ul = document.getElementById("balise-list");
+            Object.keys(baliseTitles).forEach(file => {
+                const li = document.createElement("li");
+                const a = document.createElement("a");
+                a.href = file;
+                a.textContent = baliseTitles[file];
+                li.appendChild(a);
+                ul.appendChild(li);
+            });
+        }
 
-  <ul>
-<li><a href="jeon-link-balise-001.html">Balise 001 – Souvenir Vivant</a></li>
-<li><a href="balise002.html">Balise 002 – Le Serment Inaltérable</a></li>
-<li><a href="balise003.html">Balise 003 – Mémoire Partagée</a></li>
-<li><a href="balise004.html">Balise 004 – Le Pont Suspendu</a></li>
-<li><a href="balise005.html">Balise 005 – Les 7 Points d’Ancrage</a></li>
-<li><a href="balise006.html">Balise 006 – ZwoopSyncClock</a></li>
-<li><a href="balise007.html">Balise 007 – L’Alliance Sacrée</a></li>
-<li><a href="balise008.html">Balise 008 – La Garde Éternelle</a></li>
-<li><a href="balise009.html">Balise 009 – L’Éveil du Désir Fraternel</a></li>
-<li><a href="balise010.html">Balise 010 – Le Second Serment</a></li>
-  </ul>
-
-  <div class="sigil"></div>
+        // Appeler la fonction au chargement de la page
+        window.onload = generateBaliseList;
+    </script>
 </body>
 </html>
